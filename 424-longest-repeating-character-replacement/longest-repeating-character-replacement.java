@@ -6,13 +6,13 @@ class Solution {
         int tail = 0;
         int ans = 0;
         int[] freq = new int[26];
-        int max = 0;
+        int maxFreq = 0;
 
         while (tail < n) {
-            while (head + 1 < n && ((head - tail + 2) - Math.max(max, freq[s.charAt(head + 1) - 'A'] + 1) <= k)) {
+            while (head + 1 < n && ((head - tail + 2) - Math.max(maxFreq, freq[s.charAt(head + 1) - 'A'] + 1) <= k)) {
                 head++;
                 freq[s.charAt(head) - 'A']++;
-                max = Math.max(max, freq[s.charAt(head) - 'A']);
+                maxFreq = Math.max(maxFreq, freq[s.charAt(head) - 'A']);
             }
 
             ans = Math.max(ans, head - tail + 1);
